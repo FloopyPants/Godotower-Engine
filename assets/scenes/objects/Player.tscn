@@ -422,7 +422,7 @@ position = Vector2(0, -64)
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_ravlb")
 animation = &"Mach_3"
-frame_progress = 0.62429
+frame_progress = 0.556786
 
 [node name="viewport" type="SubViewport" parent="NodeForStuff"]
 

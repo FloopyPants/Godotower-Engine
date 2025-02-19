@@ -114,11 +114,11 @@ func _process(delta: float) -> void:
 		move_and_slide()
 		
 	if state == states.climbwall:
-		velocity.y = move_toward(velocity.y, -1000.0, 50.0 * delta)
+		velocity.y = move_toward(velocity.y, -1200.0, 50.0 * delta)
 		if (!is_on_wall() && !is_on_ceiling()):
 			MOVESPD = -velocity.y
 			velocity.y = 0
-			if velocity.y >= -1000.0:
+			if velocity.y >= -1200.0:
 				$NodeForStuff/spr.play("Mach_3")
 				state = states.mach3
 			else:
