@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://qib4i0dmuvkg"]
+
+[ext_resource type="Texture2D" uid="uid://clhmwhv37myab" path="res://assets/sprites/Misc/slope.png" id="1_rgqdc"]
+
+[node name="Slope" type="StaticBody2D"]
+
+[node name="Slope" type="Sprite2D" parent="."]
+position = Vector2(16, 16)
+texture = ExtResource("1_rgqdc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 32, 32, 0, 32)
