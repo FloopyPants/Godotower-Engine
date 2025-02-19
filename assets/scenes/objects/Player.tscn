@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://ck6udwq63i21u"]
+[gd_scene load_steps=92 format=3 uid="uid://ck6udwq63i21u"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://b63ikvfjt2hvh" path="res://assets/sprites/Player/Climb_Wall/spr_player_climbwall_0.png" id="2_p8xv4"]
@@ -88,6 +88,7 @@
 [ext_resource type="Texture2D" uid="uid://b8qk1iwx655h4" path="res://assets/sprites/Player/Wall_Splat/spr_player_wallsplat_4.png" id="83_5v61s"]
 [ext_resource type="Texture2D" uid="uid://dbookyfylc337" path="res://assets/sprites/Player/Wall_Splat/spr_player_wallsplat_5.png" id="84_xurx8"]
 [ext_resource type="Texture2D" uid="uid://cp6ehp8itvp32" path="res://assets/sprites/Player/Wall_Splat/spr_player_wallsplat_6.png" id="85_535ct"]
+[ext_resource type="Script" path="res://assets/scenes/objects/rich_text_label.gd" id="89_18rgd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
 size = Vector2(24, 64)
@@ -422,9 +423,18 @@ position = Vector2(0, -64)
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_ravlb")
 animation = &"Mach_3"
-frame_progress = 0.556786
+frame_progress = 0.85574
 
 [node name="viewport" type="SubViewport" parent="NodeForStuff"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -128.0
+offset_top = -120.0
+offset_right = 120.0
+offset_bottom = -56.0
+bbcode_enabled = true
+text = "HSP"
+script = ExtResource("89_18rgd")
 
 [connection signal="animation_finished" from="NodeForStuff/spr" to="." method="_on_spr_animation_finished"]
 [connection signal="animation_looped" from="NodeForStuff/spr" to="." method="_on_spr_animation_looped"]

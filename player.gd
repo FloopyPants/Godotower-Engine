@@ -103,7 +103,7 @@ func _process(delta: float) -> void:
 			$NodeForStuff/spr.play("Climb_Wall")
 			state = states.climbwall
 			
-		if abs(MOVESPD) == 950.0:
+		if abs(MOVESPD) >= 949.99:
 			$NodeForStuff/spr.play("Mach_3")
 			state = states.mach3
 		
@@ -114,16 +114,12 @@ func _process(delta: float) -> void:
 		move_and_slide()
 		
 	if state == states.climbwall:
-		velocity.y = move_toward(velocity.y, -1200.0, 50.0 * delta)
+		velocity.y = move_toward(velocity.y, -1200.0, 75.0 * delta)
 		if (!is_on_wall() && !is_on_ceiling()):
+			$NodeForStuff/spr.play("Mach_2")
 			MOVESPD = -velocity.y
 			velocity.y = 0
-			if velocity.y >= -1200.0:
-				$NodeForStuff/spr.play("Mach_3")
-				state = states.mach3
-			else:
-				$NodeForStuff/spr.play("Mach_2")
-				state = states.mach2
+			state = states.mach2
 		if Input.is_action_just_released("ui_shift"):
 			velocity.y = 0
 			state = states.normal
