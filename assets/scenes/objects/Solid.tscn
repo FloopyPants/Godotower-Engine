@@ -7,11 +7,11 @@ size = Vector2(32, 32)
 
 [node name="Solid" type="StaticBody2D"]
 
+[node name="Solid" type="Sprite2D" parent="."]
+position = Vector2(16, 16)
+texture = ExtResource("1_pe7fk")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_78nxu")
 one_way_collision_margin = 0.0
-
-[node name="Solid" type="Sprite2D" parent="."]
-position = Vector2(16, 16)
-texture = ExtResource("1_pe7fk")

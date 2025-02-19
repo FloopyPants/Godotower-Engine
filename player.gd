@@ -6,7 +6,8 @@ enum states {
 	mach2,
 	machturn,
 	climbwall,
-	animation
+	animation,
+	mach3
 }
 
 var state = states.normal
@@ -68,7 +69,7 @@ func _process(delta: float) -> void:
 	if state == states.mach2:
 		var hor_move = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 		velocity.x = MOVESPD * $NodeForStuff/spr.scale.x
-		MOVESPD = move_toward(MOVESPD, 900.0, 100.0 * delta)
+		MOVESPD = move_toward(MOVESPD, 950.0, 150.0 * delta)
 		
 		velocity.y += GRAVITY * delta
 		move_and_slide()
@@ -101,6 +102,10 @@ func _process(delta: float) -> void:
 			velocity.y = -abs(MOVESPD)
 			$NodeForStuff/spr.play("Climb_Wall")
 			state = states.climbwall
+			
+		if abs(MOVESPD) == 950.0:
+			$NodeForStuff/spr.play("Mach_3")
+			state = states.mach3
 		
 	if state == states.machturn:
 		velocity.x = MOVESPD * $NodeForStuff/spr.scale.x
@@ -109,12 +114,16 @@ func _process(delta: float) -> void:
 		move_and_slide()
 		
 	if state == states.climbwall:
-		velocity.y = move_toward(velocity.y, -850.0, ACCELERATION * delta)
+		velocity.y = move_toward(velocity.y, -1000.0, 50.0 * delta)
 		if (!is_on_wall() && !is_on_ceiling()):
-			MOVESPD = 850.0
+			MOVESPD = -velocity.y
 			velocity.y = 0
-			$NodeForStuff/spr.play("Mach_2")
-			state = states.mach2
+			if velocity.y >= -1000.0:
+				$NodeForStuff/spr.play("Mach_3")
+				state = states.mach3
+			else:
+				$NodeForStuff/spr.play("Mach_2")
+				state = states.mach2
 		if Input.is_action_just_released("ui_shift"):
 			velocity.y = 0
 			state = states.normal
@@ -126,6 +135,39 @@ func _process(delta: float) -> void:
 			$NodeForStuff/spr.scale.x = -$NodeForStuff/spr.scale.x
 			state = states.mach2
 		move_and_slide()
+		
+	if state == states.mach3:
+		var hor_move = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+		velocity.x = MOVESPD * $NodeForStuff/spr.scale.x
+		MOVESPD = move_toward(MOVESPD, 1000.0, 100.0 * delta)
+		velocity.y += GRAVITY * delta
+		move_and_slide()
+		
+		if is_on_floor() and Input.is_action_just_pressed("ui_jump"):
+			velocity.y = -600.0
+			JUMPRELEASE = true
+		
+		if Input.is_action_just_released("ui_jump") && JUMPRELEASE && velocity.y < -100.0:
+			velocity.y = -100.0
+			JUMPRELEASE = false
+		
+		if is_on_floor():
+			if hor_move == -1 && $NodeForStuff/spr.scale.x == 1:
+				$NodeForStuff/spr.play("Mach_Turn")
+				state = states.machturn
+				
+			if hor_move == 1 && $NodeForStuff/spr.scale.x == -1:
+				$NodeForStuff/spr.play("Mach_Turn")
+				state = states.machturn
+				
+		if not Input.is_action_pressed("ui_shift"):
+			state = states.normal
+			
+		if is_on_wall() and not is_on_floor():
+			velocity.y = -abs(MOVESPD)
+			$NodeForStuff/spr.play("Climb_Wall")
+			state = states.climbwall
+			
 
 func _on_spr_animation_looped() -> void:
 	if state == states.mach1:

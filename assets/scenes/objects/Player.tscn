@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://ck6udwq63i21u"]
+[gd_scene load_steps=91 format=3 uid="uid://ck6udwq63i21u"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://b63ikvfjt2hvh" path="res://assets/sprites/Player/Climb_Wall/spr_player_climbwall_0.png" id="2_p8xv4"]
@@ -78,6 +78,9 @@
 [ext_resource type="Texture2D" uid="uid://r2q2w6r8otql" path="res://assets/sprites/Player/Mach_Turn/spr_player_machslide_0.png" id="54_17lw4"]
 [ext_resource type="Texture2D" uid="uid://bp8ii0w7yjeka" path="res://assets/sprites/Player/Mach_Turn/spr_player_machslide_1.png" id="55_45q2m"]
 [ext_resource type="Texture2D" uid="uid://d2vpfi1xdkd7f" path="res://assets/sprites/Player/Mach_Turn/spr_player_machslide_2.png" id="56_3kfh8"]
+[ext_resource type="Texture2D" uid="uid://b1v0q5dd0fscf" path="res://assets/sprites/Player/Mach_3/spr_player_mach4_0.png" id="57_1vj2s"]
+[ext_resource type="Texture2D" uid="uid://cd827emd33bn3" path="res://assets/sprites/Player/Mach_3/spr_player_mach4_1.png" id="58_ird83"]
+[ext_resource type="Texture2D" uid="uid://8lc3x0fiwai1" path="res://assets/sprites/Player/Mach_3/spr_player_mach4_2.png" id="59_4tdhp"]
 [ext_resource type="Texture2D" uid="uid://b6ccbjwxe4rxp" path="res://assets/sprites/Player/Wall_Splat/spr_player_wallsplat_0.png" id="79_vmtfw"]
 [ext_resource type="Texture2D" uid="uid://c0o0gehfi6qxk" path="res://assets/sprites/Player/Wall_Splat/spr_player_wallsplat_1.png" id="80_6xdl2"]
 [ext_resource type="Texture2D" uid="uid://dvdh3cwdob4dx" path="res://assets/sprites/Player/Wall_Splat/spr_player_wallsplat_2.png" id="81_oub2r"]
@@ -278,6 +281,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("57_1vj2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_ird83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_4tdhp")
+}],
+"loop": true,
+"name": &"Mach_3",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("47_4hdro")
 }, {
 "duration": 1.0,
@@ -394,6 +411,7 @@ script = ExtResource("1_kpjcp")
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_kpjcp")
+one_way_collision = true
 
 [node name="NodeForStuff" type="Node2D" parent="."]
 
@@ -403,8 +421,8 @@ position = Vector2(0, -64)
 [node name="spr" type="AnimatedSprite2D" parent="NodeForStuff"]
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_ravlb")
-animation = &"Idle"
-frame_progress = 0.706246
+animation = &"Mach_3"
+frame_progress = 0.62429
 
 [node name="viewport" type="SubViewport" parent="NodeForStuff"]
 
