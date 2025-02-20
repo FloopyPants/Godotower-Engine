@@ -7,7 +7,8 @@ enum states {
 	machturn,
 	climbwall,
 	animation,
-	mach3
+	mach3,
+	handstandjump,
 }
 
 var state = states.normal
@@ -53,6 +54,11 @@ func _process(delta: float) -> void:
 			state = states.mach1
 			MOVESPD = 0.0
 		
+		if Input.is_action_pressed("ui_slap"):
+			MOVESPD = 900.0
+			$NodeForStuff/spr.play("Grab")
+			state = states.handstandjump
+		
 		velocity.y += GRAVITY * delta
 
 		move_and_slide()
@@ -61,8 +67,6 @@ func _process(delta: float) -> void:
 		velocity.x = MOVESPD * $NodeForStuff/spr.scale.x
 		MOVESPD = move_toward(MOVESPD, 400.0, 900.0 * delta)
 		velocity.y += GRAVITY * delta
-		
-		
 		
 		move_and_slide()
 		
@@ -164,6 +168,12 @@ func _process(delta: float) -> void:
 			$NodeForStuff/spr.play("Climb_Wall")
 			state = states.climbwall
 			
+	if state == states.handstandjump:
+		velocity.x = MOVESPD * $NodeForStuff/spr.scale.x
+		MOVESPD = move_toward(MOVESPD, 0, 1200.0 * delta)
+		velocity.y = 0
+		
+		move_and_slide()
 
 func _on_spr_animation_looped() -> void:
 	if state == states.mach1:
@@ -178,4 +188,6 @@ func _on_spr_animation_looped() -> void:
 		$NodeForStuff/spr.play("Mach_2")
 		state = states.mach2
 	if state == states.animation:
+		state = states.normal
+	if state == states.handstandjump:
 		state = states.normal

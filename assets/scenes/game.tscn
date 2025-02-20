@@ -13,8 +13,6 @@
 [node name="Game" type="Node2D"]
 position = Vector2(-1408, 4160)
 
-[node name="Player" parent="." instance=ExtResource("7_1nbgp")]
-
 [node name="Signs" type="Node2D" parent="."]
 
 [node name="TileTutorialimage1" type="Sprite2D" parent="Signs"]
@@ -153,11 +151,6 @@ scale = Vector2(4, 3)
 position = Vector2(0, 448)
 scale = Vector2(230, 5)
 
-[node name="Platform4" parent="Node2D/Collisions" instance=ExtResource("5_3efg1")]
-position = Vector2(2592, -8576)
-rotation = 3.14159
-scale = Vector2(56, -1)
-
 [node name="Solid" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(2848, -2784)
 rotation = 3.14159
@@ -188,9 +181,16 @@ position = Vector2(-736, -9408)
 [node name="Platform7" parent="Node2D/Collisions" instance=ExtResource("5_3efg1")]
 position = Vector2(608, -8896)
 
+[node name="Solid26" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
+position = Vector2(736, -8544)
+scale = Vector2(48, 1)
+
 [node name="Platform8" parent="Node2D/Collisions" instance=ExtResource("5_3efg1")]
 position = Vector2(-64, -9152)
 
 [node name="Screenshot2025-02-19190714" type="Sprite2D" parent="."]
 position = Vector2(3424, -9184)
 texture = ExtResource("9_hf7wl")
+
+[node name="Player" parent="." instance=ExtResource("7_1nbgp")]
+position = Vector2(192, 448)
