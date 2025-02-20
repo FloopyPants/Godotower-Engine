@@ -429,11 +429,11 @@ frame_progress = 0.85574
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -128.0
-offset_top = -120.0
+offset_top = -104.0
 offset_right = 120.0
-offset_bottom = -56.0
+offset_bottom = -40.0
 bbcode_enabled = true
-text = "HSP"
+text = "States"
 script = ExtResource("89_18rgd")
 
 [connection signal="animation_finished" from="NodeForStuff/spr" to="." method="_on_spr_animation_finished"]

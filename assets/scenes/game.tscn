@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8r0xwlsk62rw"]
+[gd_scene load_steps=10 format=3 uid="uid://c8r0xwlsk62rw"]
 
 [ext_resource type="Texture2D" uid="uid://bxe7g8er1f0t1" path="res://assets/sprites/Misc/tile_tutorialimage1.png" id="1_su031"]
 [ext_resource type="Texture2D" uid="uid://de3tu4ok2ht7v" path="res://assets/sprites/Misc/tile_tutorialimage2.png" id="2_74nse"]
@@ -8,9 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://vdbhhswrgvg0" path="res://assets/sprites/Misc/steamedhams.jpg" id="5_ro7k8"]
 [ext_resource type="PackedScene" uid="uid://qib4i0dmuvkg" path="res://assets/scenes/objects/Slope.tscn" id="6_f18la"]
 [ext_resource type="PackedScene" uid="uid://ck6udwq63i21u" path="res://assets/scenes/objects/Player.tscn" id="7_1nbgp"]
+[ext_resource type="Texture2D" uid="uid://dmnq54dr8uws6" path="res://assets/sprites/Misc/Screenshot 2025-02-19 190714.png" id="9_hf7wl"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(-1408, 4160)
+
+[node name="Player" parent="." instance=ExtResource("7_1nbgp")]
 
 [node name="Signs" type="Node2D" parent="."]
 
@@ -31,141 +34,163 @@ position = Vector2(968, -8782)
 scale = Vector2(0.2375, 0.405556)
 texture = ExtResource("5_ro7k8")
 
-[node name="Collisions" type="Node2D" parent="."]
+[node name="TileTutorialimage7" type="Sprite2D" parent="Signs"]
+position = Vector2(-2873, -9561)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("3_sqfhg")
 
-[node name="Solid2" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Collisions" type="Node2D" parent="Node2D"]
+
+[node name="Solid2" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(-288, 64)
 scale = Vector2(9, 17)
 
-[node name="Solid3" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid3" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(928, 64)
 scale = Vector2(40, 13)
 
-[node name="Platform" parent="Collisions" instance=ExtResource("5_3efg1")]
+[node name="Platform" parent="Node2D/Collisions" instance=ExtResource("5_3efg1")]
 position = Vector2(800, 128)
 scale = Vector2(4, 1)
 
-[node name="Platform2" parent="Collisions" instance=ExtResource("5_3efg1")]
+[node name="Platform2" parent="Node2D/Collisions" instance=ExtResource("5_3efg1")]
 position = Vector2(800, 224)
 scale = Vector2(4, 1)
 
-[node name="Platform3" parent="Collisions" instance=ExtResource("5_3efg1")]
+[node name="Platform3" parent="Node2D/Collisions" instance=ExtResource("5_3efg1")]
 position = Vector2(800, 320)
 scale = Vector2(4, 1)
 
-[node name="Solid5" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid5" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(2656, 64)
 scale = Vector2(3, -21)
 
-[node name="Solid6" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid6" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(2272, -256)
 scale = Vector2(3, -21)
 
-[node name="Slope2" parent="Collisions" instance=ExtResource("6_f18la")]
+[node name="Slope2" parent="Node2D/Collisions" instance=ExtResource("6_f18la")]
 position = Vector2(2080, -960)
 scale = Vector2(6, 1)
 
-[node name="Solid7" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid7" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(1760, -960)
 scale = Vector2(10, 1)
 
-[node name="Solid8" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid8" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(1696, -1728)
 scale = Vector2(2, 24)
 
-[node name="Solid9" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid9" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(1952, -2240)
 scale = Vector2(2, 24)
 
-[node name="Solid10" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid10" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(1760, -1728)
 scale = Vector2(1, 2)
 
-[node name="Slope3" parent="Collisions" instance=ExtResource("6_f18la")]
+[node name="Slope3" parent="Node2D/Collisions" instance=ExtResource("6_f18la")]
 position = Vector2(2336, -2272)
 rotation = 3.14159
 scale = Vector2(3, -1)
 
-[node name="Solid11" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid11" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(2336, -2272)
 scale = Vector2(12, 1)
 
-[node name="Solid12" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid12" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(2016, -2240)
 scale = Vector2(22, 2)
 
-[node name="Solid13" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid13" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(2752, -4480)
 scale = Vector2(3, 72)
 
-[node name="Solid14" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid14" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(3072, -6752)
 scale = Vector2(3, 72)
 
-[node name="Solid15" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid15" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(3328, -9024)
 scale = Vector2(3, 72)
 
-[node name="Solid4" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid4" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(640, -8896)
 scale = Vector2(3, 12)
 
-[node name="Solid16" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid16" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(-32, -9152)
 scale = Vector2(3, 12)
 
-[node name="Solid17" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid17" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(-704, -9408)
 scale = Vector2(3, 12)
 
-[node name="Solid18" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid18" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(-1440, -9408)
 scale = Vector2(-22, 4)
 
-[node name="Slope" parent="Collisions" instance=ExtResource("6_f18la")]
+[node name="Slope" parent="Node2D/Collisions" instance=ExtResource("6_f18la")]
 position = Vector2(-2144, -9472)
 scale = Vector2(10, 2)
 
-[node name="Solid19" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid19" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(-2144, -9472)
 scale = Vector2(-25, 6)
 
-[node name="Solid20" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid25" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
+position = Vector2(-3936, -9472)
+scale = Vector2(-25, 6)
+
+[node name="Solid20" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(3296, -9120)
 scale = Vector2(4, 3)
 
-[node name="Solid21" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid21" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(0, 448)
 scale = Vector2(230, 5)
 
-[node name="Platform4" parent="Collisions" instance=ExtResource("5_3efg1")]
+[node name="Platform4" parent="Node2D/Collisions" instance=ExtResource("5_3efg1")]
 position = Vector2(2592, -8576)
 rotation = 3.14159
 scale = Vector2(56, -1)
 
-[node name="Solid" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(2848, -2784)
 rotation = 3.14159
 scale = Vector2(13, -2)
 
-[node name="Solid23" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid23" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(2592, -3072)
 rotation = 3.14159
 scale = Vector2(13, -2)
 
-[node name="Solid24" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid24" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(2496, -3072)
 rotation = 3.14159
 scale = Vector2(-3, 15)
 
-[node name="Platform5" parent="Collisions" instance=ExtResource("5_3efg1")]
+[node name="Platform5" parent="Node2D/Collisions" instance=ExtResource("5_3efg1")]
 position = Vector2(2752, -2528)
 rotation = 3.14159
 scale = Vector2(15, -1)
 
-[node name="Solid22" parent="Collisions" instance=ExtResource("4_k10oo")]
+[node name="Solid22" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(2176, -3008)
 scale = Vector2(3, 16)
 
-[node name="Player" parent="." instance=ExtResource("7_1nbgp")]
-position = Vector2(288, 448)
+[node name="Platform6" parent="Node2D/Collisions" instance=ExtResource("5_3efg1")]
+position = Vector2(-736, -9408)
+
+[node name="Platform7" parent="Node2D/Collisions" instance=ExtResource("5_3efg1")]
+position = Vector2(608, -8896)
+
+[node name="Platform8" parent="Node2D/Collisions" instance=ExtResource("5_3efg1")]
+position = Vector2(-64, -9152)
+
+[node name="Screenshot2025-02-19190714" type="Sprite2D" parent="."]
+position = Vector2(3424, -9184)
+texture = ExtResource("9_hf7wl")

@@ -69,7 +69,7 @@ func _process(delta: float) -> void:
 	if state == states.mach2:
 		var hor_move = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 		velocity.x = MOVESPD * $NodeForStuff/spr.scale.x
-		MOVESPD = move_toward(MOVESPD, 950.0, 150.0 * delta)
+		MOVESPD = move_toward(MOVESPD, 950.0, 250.0 * delta)
 		
 		velocity.y += GRAVITY * delta
 		move_and_slide()
@@ -116,10 +116,10 @@ func _process(delta: float) -> void:
 	if state == states.climbwall:
 		velocity.y = move_toward(velocity.y, -1200.0, 75.0 * delta)
 		if (!is_on_wall() && !is_on_ceiling()):
+			state = states.mach2
 			$NodeForStuff/spr.play("Mach_2")
 			MOVESPD = -velocity.y
 			velocity.y = 0
-			state = states.mach2
 		if Input.is_action_just_released("ui_shift"):
 			velocity.y = 0
 			state = states.normal
