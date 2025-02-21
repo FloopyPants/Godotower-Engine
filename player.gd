@@ -86,10 +86,11 @@ func _process(delta: float) -> void:
 			velocity.y = -100.0
 			JUMPRELEASE = false
 		
-		if not Input.is_action_pressed("ui_shift"):
+		if not Input.is_action_pressed("ui_shift") and is_on_floor() :
 			state = states.normal
 		
 		if is_on_floor():
+			$NodeForStuff/spr.play("Mach_2")
 			if hor_move == -1 && $NodeForStuff/spr.scale.x == 1:
 				$NodeForStuff/spr.play("Mach_Turn")
 				state = states.machturn
@@ -101,6 +102,8 @@ func _process(delta: float) -> void:
 			if is_on_wall():
 				$NodeForStuff/spr.play("Wall_Splat")
 				state = states.animation
+		else :
+			$NodeForStuff/spr.play("Mach2_Jump")
 			
 		if is_on_wall() and not is_on_floor():
 			velocity.y = -abs(MOVESPD)
@@ -172,6 +175,11 @@ func _process(delta: float) -> void:
 		velocity.x = MOVESPD * $NodeForStuff/spr.scale.x
 		MOVESPD = move_toward(MOVESPD, 0, 1200.0 * delta)
 		velocity.y = 0
+		
+		if Input.is_action_just_pressed("ui_jump"):
+			MOVESPD = 700.0
+			velocity.y = -600.0
+			state = states.mach2
 		
 		move_and_slide()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://ck6udwq63i21u"]
+[gd_scene load_steps=132 format=3 uid="uid://ck6udwq63i21u"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://b63ikvfjt2hvh" path="res://assets/sprites/Player/Climb_Wall/spr_player_climbwall_0.png" id="2_p8xv4"]
@@ -115,6 +115,12 @@
 [ext_resource type="Texture2D" uid="uid://dlpwqmxmqxjtg" path="res://assets/sprites/Player/Lunge/spr_player_lunge_17.png" id="64_b74g5"]
 [ext_resource type="Texture2D" uid="uid://b7htqykixxcyo" path="res://assets/sprites/Player/Lunge/spr_player_lunge_18.png" id="65_yfqwv"]
 [ext_resource type="Texture2D" uid="uid://u7wjnj17xcqg" path="res://assets/sprites/Player/Lunge/spr_player_lunge_19.png" id="66_6vd52"]
+[ext_resource type="Texture2D" uid="uid://d1gvwvhp1imqd" path="res://assets/sprites/Player/Mach2_Jump/spr_player_mach2jump_0.png" id="67_51yb7"]
+[ext_resource type="Texture2D" uid="uid://deq2e1byqeqhl" path="res://assets/sprites/Player/Mach2_Jump/spr_player_mach2jump_1.png" id="68_pyj03"]
+[ext_resource type="Texture2D" uid="uid://p56vfgu6xhu7" path="res://assets/sprites/Player/Mach2_Jump/spr_player_mach2jump_2.png" id="69_0rilu"]
+[ext_resource type="Texture2D" uid="uid://bxs5ogfxpn7tn" path="res://assets/sprites/Player/Mach2_Jump/spr_player_mach2jump_3.png" id="70_sr78e"]
+[ext_resource type="Texture2D" uid="uid://p3enyjiu42mw" path="res://assets/sprites/Player/Mach2_Jump/spr_player_mach2jump_4.png" id="71_21b64"]
+[ext_resource type="Texture2D" uid="uid://df2gpvghwufr2" path="res://assets/sprites/Player/Mach2_Jump/spr_player_mach2jump_5.png" id="72_jrp7r"]
 [ext_resource type="Texture2D" uid="uid://b6ccbjwxe4rxp" path="res://assets/sprites/Player/Wall_Splat/spr_player_wallsplat_0.png" id="79_vmtfw"]
 [ext_resource type="Texture2D" uid="uid://c0o0gehfi6qxk" path="res://assets/sprites/Player/Wall_Splat/spr_player_wallsplat_1.png" id="80_6xdl2"]
 [ext_resource type="Texture2D" uid="uid://dvdh3cwdob4dx" path="res://assets/sprites/Player/Wall_Splat/spr_player_wallsplat_2.png" id="81_oub2r"]
@@ -347,6 +353,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("67_51yb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_pyj03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_0rilu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_sr78e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_21b64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_jrp7r")
+}],
+"loop": true,
+"name": &"Mach2_Jump",
+"speed": 23.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("23_chpgb")
 }, {
 "duration": 1.0,
@@ -571,9 +600,8 @@ position = Vector2(0, -64)
 [node name="spr" type="AnimatedSprite2D" parent="NodeForStuff"]
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_ravlb")
-animation = &"Grab"
-frame = 3
-frame_progress = 0.358064
+animation = &"Mach2_Jump"
+frame_progress = 0.896364
 
 [node name="viewport" type="SubViewport" parent="NodeForStuff"]
 

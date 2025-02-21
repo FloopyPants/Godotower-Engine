@@ -141,7 +141,19 @@ scale = Vector2(-25, 6)
 
 [node name="Solid25" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(-3936, -9472)
-scale = Vector2(-25, 6)
+scale = Vector2(-62, 6)
+
+[node name="Solid27" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
+position = Vector2(-4736, -9472)
+scale = Vector2(5, -32)
+
+[node name="Solid29" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
+position = Vector2(-5920, -9472)
+scale = Vector2(5, -32)
+
+[node name="Solid28" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
+position = Vector2(-5312, -9888)
+scale = Vector2(5, -32)
 
 [node name="Solid20" parent="Node2D/Collisions" instance=ExtResource("4_k10oo")]
 position = Vector2(3296, -9120)
